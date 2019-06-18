@@ -5,8 +5,6 @@ services:
 before_install:
    - docker build -t arinmupenn/react-test -f ./client/Dockerfile .
 
-script:
-   - docker run arinmupenn/react-test npm run test -- --coverage
 
 after_success:
    - docker build -t arinmupenn/multi-client ./client
