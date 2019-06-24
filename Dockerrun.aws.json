@@ -1,0 +1,36 @@
+{
+ "AWSEBDockerrunVersion":2,
+ "containerDefinitions": [
+ {
+  "name": "client",
+  "image": "arinmupenn/multi-client",
+  "hostname": "client",
+  "essential": "false"
+ },
+ {
+  "name": "server",
+  "image": "arinmupenn/multi-server",
+  "hostname": "api",
+  "essential": "false"
+ },
+ {
+  "name": "worker",
+  "image": "arinmupenn/multi-worker",
+  "hostname": "worker",
+  "essential": "false"
+ },
+ {
+  "name": "nginx",
+  "image": "arinmupenn/multi-nginx",
+  "hostname": "nginx",
+  "essential": "true",
+  "portMappings": [
+  {
+    "hostPort": 80,
+    "containerPort": 80
+  }
+  ],
+  "links":["client","server"]
+ }
+]
+}
