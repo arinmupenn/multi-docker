@@ -20,7 +20,7 @@ after_success:
    - docker push arinmupenn/multi-worker
 deploy:
    provider: elasticbeanstalk
-   region: us-easy-2
+   region: us-east-2
    app: multi-docker
    env: MultiDocker-env
    bucket_name: elasticbeanstalk-us-east-2-251219260618
